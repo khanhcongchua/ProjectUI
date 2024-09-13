@@ -65,7 +65,7 @@ const mixedChart = new Chart(ctx1, {
     data: {
         datasets: [{
             type: 'bar',
-            label: 'Luong nuoc tuoi du bao',
+            label: 'Luong nuoc tuoi/ngay',
             data: [0.10, 0.20, 0.30, 0.2, 0.15, 0.1, 0.4],
             backgroundColor: "rgba(255,230,123,0.5)",
             yAxisID: 'y1',  // Assign to left y-axis
