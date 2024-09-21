@@ -175,7 +175,7 @@ const mixedChart = new Chart(ctx1, {
         }
     });
 
-
+let database=[55 ,49, 44, 24, 15]
     // Single Bar Chart
     var ctx4 = $("#bar-chart").get(0).getContext("2d");
     var myChart4 = new Chart(ctx4, {
@@ -190,7 +190,7 @@ const mixedChart = new Chart(ctx1, {
                     "rgba(0, 156, 255, .4)",
                     "rgba(0, 156, 255, .3)"
                 ],
-                data: [55, 49, 44, 24, 15]
+                data: database
             }]
         },
         options: {

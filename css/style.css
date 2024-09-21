@@ -291,7 +291,15 @@
     border-radius: 60px;
     border: 1px solid black;
     width: 60%;
-    padding: 20px 0 4px 0;
+    padding: 30px 0 4px 0;
+    position: relative;
+}
+
+.weather-inf h6{
+    position: absolute;
+    top: 10px;
+    font-size: 20px;
+    text-transform: uppercase;
 }
 
 .weather-board .general-weather-infor{
@@ -346,6 +354,18 @@
 .recommend-inf_text p{
     white-space:normal;
     word-break: break-all;
+}
+
+.weather-icon{
+    text-align: center;
+}
+
+.weather-icon img{
+    margin-bottom: 8px;
+}
+
+.weather-temp-today{
+    text-align: center;
 }
 
 @media  (max-width: 1100px){
