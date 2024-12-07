@@ -60,73 +60,73 @@
 
 
     // Worldwide Sales Chart
-    var ctx1 = $("#worldwide-sales").get(0).getContext("2d");
-    const mixedChart = new Chart(ctx1, {
-        data: {
-            datasets: [{
-                type: 'bar',
-                label: 'Luong nuoc tuoi/ngay',
-                data: [0.10, 0.20, 0.30, 0.2, 0.15, 0.1, 0.4],
-                backgroundColor: "rgba(255,230,123,0.5)",
-                yAxisID: 'y1',  // Assign to left y-axis
-                fill: true
-            }, {
-                type: 'line',
-                label: 'Do am dat',
-                data: [9, 30, 29, 20, 33, 15, 27, 33, 18],
-                backgroundColor: "blue",
-                yAxisID: 'y2'   // Assign to right y-axis
-            }],
-            labels: ['0', '5', '10', '15', '20', '25', '30'],
-            xAxisID: 'x'
-        },
-        options: {
-            responsive: true,
-            scales: {
-                x: {
-                    title: {
-                        position: 'bottom',
-                        display: true,
-                        text: "Time/Day",
-                        font: {
-                            size: 18
-                        }
-                    }
-                },
-                y1: {  // Left y-axis
-                    type: 'linear',
-                    position: 'left',
-                    ticks: {
-                        beginAtZero: true
-                    },
-                    title: {
-                        display: true,
-                        text: "Luong nuoc tuoi",
-                        font: {
-                            size: 14
-                        }
-                    }
-                },
-                y2: {  // Right y-axis
-                    type: 'linear',
-                    position: 'right',
-                    ticks: {
-                        beginAtZero: true
-                    },
-                    grid: {
-                        drawOnChartArea: false  // Prevent grid lines from overlapping
-                    },
-                    title: {
-                        display: true,
-                        text: "Do am dat(%)",
-                        font: {
-                            size: 14
-                        },
-                    }
-                }
-            }
-        }
-    });
+    // var ctx1 = $("#worldwide-sales").get(0).getContext("2d");
+    // const mixedChart = new Chart(ctx1, {
+    //     data: {
+    //         datasets: [{
+    //             type: 'bar',
+    //             label: 'Luong nuoc tuoi/ngay',
+    //             data: [0.10, 0.20, 0.30, 0.2, 0.15, 0.1, 0.4],
+    //             backgroundColor: "rgba(255,230,123,0.5)",
+    //             yAxisID: 'y1',  // Assign to left y-axis
+    //             fill: true
+    //         }, {
+    //             type: 'line',
+    //             label: 'Do am dat',
+    //             data: [9, 30, 29, 20, 33, 15, 27, 33, 18],
+    //             backgroundColor: "blue",
+    //             yAxisID: 'y2'   // Assign to right y-axis
+    //         }],
+    //         labels: ['0', '5', '10', '15', '20', '25', '30'],
+    //         xAxisID: 'x'
+    //     },
+    //     options: {
+    //         responsive: true,
+    //         scales: {
+    //             x: {
+    //                 title: {
+    //                     position: 'bottom',
+    //                     display: true,
+    //                     text: "Time/Day",
+    //                     font: {
+    //                         size: 18
+    //                     }
+    //                 }
+    //             },
+    //             y1: {  // Left y-axis
+    //                 type: 'linear',
+    //                 position: 'left',
+    //                 ticks: {
+    //                     beginAtZero: true
+    //                 },
+    //                 title: {
+    //                     display: true,
+    //                     text: "Luong nuoc tuoi",
+    //                     font: {
+    //                         size: 14
+    //                     }
+    //                 }
+    //             },
+    //             y2: {  // Right y-axis
+    //                 type: 'linear',
+    //                 position: 'right',
+    //                 ticks: {
+    //                     beginAtZero: true
+    //                 },
+    //                 grid: {
+    //                     drawOnChartArea: false  // Prevent grid lines from overlapping
+    //                 },
+    //                 title: {
+    //                     display: true,
+    //                     text: "Do am dat(%)",
+    //                     font: {
+    //                         size: 14
+    //                     },
+    //                 }
+    //             }
+    //         }
+    //     }
+    // });
 
 
 
@@ -156,4 +156,3 @@
     });
 
 })(jQuery);
-
