@@ -13,7 +13,8 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+const db = getFirestore(app);
+
 
 const date = new Date();
 const today = new Date(date.getTime());
@@ -48,6 +49,7 @@ export const addDataForWeather7days = async (maxTemp, minTemp, icon, temp, date)
         icon,
         temp,
         date,
+        currentTime: today.getTime(),
         timestamp: today.toLocaleDateString()
     });
 }
@@ -63,6 +65,7 @@ export const addDataForWeatherToday = async (maxTemp, minTemp, temp, icon, humid
         humidity,
         solar,
         titleOfWeather,
+        currentTime: today.getTime(),
         timestamp: today.toLocaleDateString()
     });
 }
@@ -73,9 +76,12 @@ export const getWeatherToday = async () => {
 
     const q = query(collection(db, "weatherToday"), where('timestamp', '==', today.toLocaleDateString().toString()));
     const querySnapshot = await getDocs(q);
+
     querySnapshot.forEach((doc) => {
         data = doc.data();
     });
+
+    (data == null) ? data = null : data = data;
 
     return data;
 
@@ -91,6 +97,8 @@ export const getWeather7days = async () => {
     querySnapshot.forEach((doc) => {
         data = doc.data();
     });
+
+    (data == null) ? data = null : data = data;
 
     return data;
 
