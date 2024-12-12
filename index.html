@@ -117,16 +117,17 @@
                             <a href="#" class="dropdown-item text-center">See all notifications</a>
                         </div>
                     </div>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt=""
-                                style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                    <div class="nav-item dropdown" id="userNav">
+                        <a href="signin.html" id="loginLink">Login</a>
+                        <div id="userDropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                <span class="d-none d-lg-inline-flex" id="user-name">John Doe</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                                <!-- <a href="#" class="dropdown-item">My Profile</a>
+                                <a href="#" class="dropdown-item">Settings</a> -->
+                                <button class="dropdown-item" id="logOut-btn">Log Out</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -238,8 +239,9 @@
         integrity="sha512-v8+bPcpk4Sj7CKB11+gK/FnsbgQ15jTwZamnBf/xDmiQDcgOIYufBo6Acu1y30vrk8gg5su4x0CG3zfPaq5Fcg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <!-- <script type="module" src="js/handlleAPI.js"></script> -->
     <script type="module" src="js/weather.js"></script>
-    <script type="module" src="js/handlleAPI.js"></script>
+    <script type="module" src="js/index.js"></script>
     <!-- <script type="module" src="js/webSocket.js"></script> -->
 
 </body>

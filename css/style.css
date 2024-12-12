@@ -123,6 +123,10 @@
 
 
 /*** Navbar ***/
+.nav-item {
+    padding-left: 10px;
+}
+
 .sidebar .navbar .navbar-nav .nav-link {
     padding: 7px 20px;
     color: var(--dark);
@@ -277,14 +281,14 @@
     border-color: var(--primary);
 }
 
-.weather-board{
+.weather-board {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    
+
 }
 
-.weather-inf{
+.weather-inf {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -295,20 +299,20 @@
     position: relative;
 }
 
-.weather-inf h6{
+.weather-inf h6 {
     position: absolute;
     top: 10px;
     font-size: 20px;
     text-transform: uppercase;
 }
 
-.weather-board .general-weather-infor{
+.weather-board .general-weather-infor {
     display: flex;
     justify-content: space-evenly;
     width: 50%;
 }
 
-.col-icon{
+.col-icon {
     margin-right: 50px;
 }
 
@@ -316,77 +320,114 @@
     margin-bottom: 25px;
 
 }
-.weather-icon i{
+
+.weather-icon i {
     font-size: 50px;
 }
 
-.weather-icon h3{
+.weather-icon h3 {
     text-align: center;
 }
 
 .weather-temp-today {
-   align-items: center;
+    align-items: center;
 }
-.weather-temp-today i{
+
+.weather-temp-today i {
     font-size: 120px;
     margin-bottom: 18px;
 }
 
-.recommend-inf{
-    border:1px solid black;
+.recommend-inf {
+    border: 1px solid black;
     border-radius: 60px;
     padding: 20px;
 }
 
-.recommend-inf h1{
+.recommend-inf h1 {
     font-size: 30px;
     text-transform: uppercase;
     text-align: center;
 }
 
 .recommend-inf_text {
-    max-height: 150px; /* Set a fixed or maximum height for the scrollable area */
-    overflow-y: auto;  /* Enable vertical scrolling */
-    padding-right: 10px; /* Optional: Add some padding to avoid content touching the scroll bar */
+    max-height: 150px;
+    /* Set a fixed or maximum height for the scrollable area */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    padding-right: 10px;
+    /* Optional: Add some padding to avoid content touching the scroll bar */
     width: 350px;
 }
 
-.recommend-inf_text p{
-    white-space:normal;
+.recommend-inf_text p {
+    white-space: normal;
     word-break: break-all;
 }
 
-.weather-icon{
+.weather-icon {
     text-align: center;
 }
 
-.weather-icon img{
+.weather-icon img {
     margin-bottom: 8px;
 }
 
-.weather-temp-today{
+.weather-temp-today {
     text-align: center;
 }
 
-@media  (max-width: 1100px){
-    .weather-board{
+@media (max-width: 1100px) {
+    .weather-board {
         display: block;
     }
 
-    .weather-inf{
+    .weather-inf {
         width: 100%;
         margin-bottom: 20px;
     }
 
-    .recommend-inf_text{
+    .recommend-inf_text {
         width: 100%;
     }
 
-    .weather-temp-today i{
+    .weather-temp-today i {
         font-size: 80px;
     }
 
-    .weather-icon h3{
+    .weather-icon h3 {
         text-align: center;
     }
+}
+
+.inactive {
+    display: none;
+}
+
+.alert {
+    background-color: aliceblue;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    z-index: 9999;
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-align: center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 1.6rem 15rem;
+    -webkit-box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
+}
+
+.alert--success {
+    background-color: #20bf6b;
+}
+
+.alert--error {
+    background-color: #eb4d4b;
 }

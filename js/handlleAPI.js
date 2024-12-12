@@ -1,9 +1,11 @@
 
 export const getDataForHomePage = async () => {
 
-    const data = await axios.get('http://localhost:3000/api/view/home');
+    const data = await axios.get('http://localhost:3000/api/view/home', {
+        withCredentials: true
+    });
 
-    return data.data.data;
+    return data.data;
 }
 
 export const callApi = async () => {

@@ -32,7 +32,7 @@ export function initOrUpdateBar(data) {
     let temperatures = data.map(doc => doc.temp);
     let humidities = data.map(doc => doc.humd);
     // let timestamps = data.map(doc => new Date(doc.timestamp.toDate()).toLocaleTimeString());
-    let timestamps = data.map(doc => new Date(doc.currentTime).toLocaleTimeString());
+    let timestamps = data.map(doc => doc.currentTime);
 
     if (!mixedChart) {
         const ctx = document.getElementById('worldwide-sales').getContext('2d');
