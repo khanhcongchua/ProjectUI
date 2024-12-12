@@ -54,15 +54,18 @@
 
 
                 <div class="navbar-nav align-items-center ms-auto">
+                    <!-- nút test start -->
+                    <!-- <button id="add-item-btn" type="submit" class="jss676 jss694 jss705 jss706 jss2586 btn btn-primary ">Lưu</button> -->
+
+                    
+                    <!-- nut test end -->
                     
 
-
-                    
                     <div class="nav-item dropdown">
-                        <a href="arealist.html" class="textcolor">
-                            <i class="fa fa-seedling me-lg-2"></i>
-
-                            <span class="d-none d-lg-inline-flex">Danh sách vườn</span>
+                        <a href="index.html" class="textcolor">
+                            <i class="fa fa-solid fa-chart-line me-lg-2"></i>
+                            
+                            <span class="d-none d-lg-inline-flex">Trang Chủ</span>
                         </a>
                         <!-- <div class="dropdown-menu dropdown-menu-end border-0 rounded-0 rounded-bottom m-0">
                             
@@ -70,17 +73,16 @@
                     </div>
 
 
-                    <div class="nav-item dropdown" id="userNav">
-                        <a href="signin.html" id="loginLink">Login</a>
-                        <div id="userDropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                                <span class="d-none d-lg-inline-flex" id="user-name">John Doe</span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                                <!-- <a href="#" class="dropdown-item">My Profile</a>
-                                <a href="#" class="dropdown-item">Settings</a> -->
-                                <button class="dropdown-item" id="logOut-btn">Log Out</button>
-                            </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle textcolor" data-bs-toggle="dropdown">
+                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt=""
+                                style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">John Doe</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                            <a href="#" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
@@ -89,59 +91,33 @@
 
 
 
-
             <!-- Chọn vườn start-->
             <div class="container-fluid pt-4 px-4 weather-board" >
+                            
                 
-                <!-- Nút Thêm Item -->
-                <!-- <button id="show-alert-btn" class="btn btn-primary">Add Item</button> -->
 
 
-                <div class="nav-item dropdown position-absolute custom-dropdown">  
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">  
-                        <i class="fa fa-envelope me-lg-2"></i>  
-                        <span class="d-none d-lg-inline-flex">Message</span>  
-                    </a>  
+                <div  class="nav-item dropdown position-absolute custom-dropdown " style="padding-top: 30px;"> 
+                    
+                    <button type="submit" class="jss676 jss694 jss705 jss706 jss2586 btn btn-primary " onclick="window.location.href='forminput.html';" >
+                        Thêm vườn
+                    </button>
+
+                </div>
+                
+            </div>
+            <!-- chọn vườn end -->
             
-                    <div class="dropdown-menu dropdown-menu-end border-0 rounded-0 rounded-bottom m-0" id="messageDropdown">  
-                        <!-- Các item message sẽ được thêm vào đây -->  
-                        <a href="#" class="dropdown-item text-center">See all message</a>  
-                    </div>  
-                </div>
-                
-            </div>
-             <!-- chọn vườn end -->
 
-
-            <!-- Sale & Revenue Start -->
-            <div class="container-fluid pt-4 px-4 weather-board">
-                <div class="weather-inf bg-light">
-                </div>
-
-                <div class="recommend-inf">
-                    <h1>Dưa Lưới (KC:<span id="kc-value">0.85</span>)</h1>
-                    <label for="kc-selector">KC:</label>
-                    <select id="kc-selector">
-                        <option value="0">auto</option>
-                        <option value="0.5">0.5</option>
-                        <option value="0.85">0.85</option>
-                        <option value="0.6">0.6</option>
-                      </select>
-                    <!-- <button id="show-alert-btn">.</button> -->
-
-
-                    <div class="recommend-inf_text">
-                        
-                    </div>
-                </div>
-            </div>
-            <!-- Sale & Revenue End -->
+            
 
 
             <!-- Sales Chart Start -->
             <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
-                    <div class="col-sm-12 col-xl-6">
+                
+                <div class="row g-4 " >
+
+                    <!-- <div class="row g-4">
                         <div class=" text-center rounded p-4 chart_background">
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h6 class="mb-0">Lượng Nước Trong Ngày</h6>
@@ -149,34 +125,27 @@
                             </div>
                             <canvas id="worldwide-sales"></canvas>
                         </div>
+                    </div> -->
+
+                    <!-- Container cho danh sách item -->  
+                    <div id="item-container" class="row g-4">  
+                        <!-- Các item sẽ được thêm vào đây   -->
                     </div>
-                    <div class="col-sm-12 col-xl-6">
-                        <div class=" text-center rounded p-4 chart_background">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Lượng Nước Dự Đoán Trong 7 Ngày</h6>
-                                
-                            </div>
-                            <canvas id="salse-revenue"></canvas>
-                        </div>
-                    </div>
+                    
+                    
+                        
+
+
+                    
+                    
+
+                    
+                    
                 </div>
             </div>
             <!-- Sales Chart End -->
 
-            <div class="container-fluid pt-4 px-4 weather7days">
-                <div class="row g-4">
-                    <div class="col-sm-12 col-xl-12">
-                        <div class=" text-center rounded p-4 chart_background">
-                            <h6 class="mb-4">Thời Tiết 7 Ngày</h6>
-                            <div class="row">
-                                <!-- Day 1 -->
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            
 
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4 footer1">
@@ -213,25 +182,27 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-    <!-- <script src="script.js"></script>    -->
-    <script src="js/Plants.js"></script> 
-    <script src="js/warning.js"></script> 
-    
-
-
+    <script src="script.js"></script>   
+    <script src="js\Plants.js"></script>
+    <script src="js\vuonItem.js"></script> 
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.8/axios.min.js"
-        integrity="sha512-v8+bPcpk4Sj7CKB11+gK/FnsbgQ15jTwZamnBf/xDmiQDcgOIYufBo6Acu1y30vrk8gg5su4x0CG3zfPaq5Fcg=="
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/5.10.1/mqtt.min.js"
+        integrity="sha512-pR8nd38GU+Btc396OiF2bVNDPxdLVgqA1K/roVBR13m4nVsFmjyIopjsVzncTgmczisiimSFLYpBK+dclsL7uw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <!-- <script type="module" src="js/handlleAPI.js"></script> -->
+    <script type="module" src="js/mqtt.js"></script>
+    <script type="module" src="js/firebase.js"></script>
     <script type="module" src="js/weather.js"></script>
-    <script type="module" src="js/index.js"></script>
-    <!-- <script type="module" src="js/webSocket.js"></script> -->
 
+    <!--  -->
+    <script>  
+        document.addEventListener("DOMContentLoaded", displayItems); // Gọi hàm hiển thị items  
+    </script>
 
+     
+    
+    
 
 </body>
 

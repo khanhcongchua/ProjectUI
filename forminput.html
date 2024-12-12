@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>DASHMIN - Bootstrap Admin Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    
+    
+</head>
+
+<body>
+    <div class=" position-relative bg-white d-flex p-0  container-xxl1">
+
+        <!-- Content Start -->
+    <div class="content">
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand navbar-light sticky-top px-4 py-0 ">
+                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+                </a>
+        <a href="#" class="sidebar-toggler flex-shrink-0">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <form class="d-none d-md-flex ms-4">
+                    <input class="form-control border-0" type="search" placeholder="Search">
+                </form>
+
+
+
+                <div class="navbar-nav align-items-center ms-auto">
+
+
+
+                    <div class="nav-item dropdown">
+                        <a href="index.html" class="textcolor">
+                            <i class="fa fa-solid fa-chart-line me-lg-2"></i>
+                            
+                            <span class="d-none d-lg-inline-flex">Trang Chủ</span>
+                        </a>
+                        <!-- <div class="dropdown-menu dropdown-menu-end border-0 rounded-0 rounded-bottom m-0">
+                            
+                        </div> -->
+                    </div>
+                    
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle textcolor" data-bs-toggle="dropdown">
+                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt=""
+                                style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">John Doe</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                            <a href="#" class="dropdown-item">Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Navbar End -->
+
+
+
+
+            
+
+
+            
+
+
+            
+
+            <div class="container-fluid pt-4 px-4 weather7days">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-xl-12">
+                        <div class=" text-center rounded p-4 chart_background">
+                            
+                            
+                            <div class=" rounded p-4 chart_background" style=" width: 100%;">
+
+
+                                <h1 class="mb-4 text-center">Thông tin vườn</h1>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="AreaInput" placeholder="__">
+                                    <label for="floatingInput">Tên vườn</label>
+                                </div>
+                                
+                                <div class="form-floating mb-3">
+                                    <select class="form-select" id="loaiVuonSelect" aria-label="Floating label select example" required>
+                                        <option selected>Chọn loại vườn</option>
+                                        <option value="1">Nhà kính</option>
+                                        <option value="2">Đồng ruộng</option>
+                                    </select>
+                                    <label for="loaiVuonSelect">Loại vườn</label>
+                                </div>
+                    
+                                
+                    
+                                <div class="form-floating mb-3">
+                                    <select class="form-select" id="cachThucSelect" aria-label="Floating label select example">
+                                        <option selected>Chọn cách thức</option>
+                                        <option value="1">Trực tiếp vào đất</option>
+                                        <option value="2">Trong chậu</option>
+                                    </select>
+                                    <label for="cachThucSelect">Cách thức trồng</label>
+                                </div>
+                    
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">m²</span>
+                                    <input type="text" class="form-control" id="dientichInput" aria-label="Amount (to the nearest dollar)" required>
+                                    
+                                </div>
+                    
+                                <div class="form-floating mb-3">
+                                    <textarea class="form-control" placeholder="Ghi chú" id="chuThichTextarea" style="height: 150px; max-height: 150px;">   </textarea>
+                                    <label for="floatingTextarea">Chú thích</label>
+                                </div>
+                    
+                                <div  class="form-floating mb-3" id="map" style="height: 200px; width: 100%; border-radius: 5px;"></div>
+                                
+                                 <!-- Thêm trường input để hiển thị vĩ độ  -->
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="latitudeInput" placeholder="Vĩ độ" >
+                                    <label for="latitudeInput">Vĩ độ</label>
+                                </div>
+                    
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="longitudeInput" placeholder="Kinh độ" >
+                                    <label for="longitudeInput">Kinh độ</label>
+                                </div>
+                                
+                    
+                                <button type="submit" class="jss676 jss694 jss705 jss706 jss2586 btn btn-primary " onclick="location.href='arealist.html';">Lưu</button>
+                    
+
+                                
+                    
+                    
+                            </div>
+
+                            
+
+                            
+                        </div>
+                    </div>
+                            
+
+
+                    <!-- <div id="item-container" class="row g-4 ">  
+                        Các item sẽ được thêm vào đây 
+                    </div> -->
+
+
+
+                </div>
+
+            </div>
+
+            <!-- Footer Start -->
+            <div class="container-fluid pt-4 px-4 footer1">
+                <div class=" rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 text-center text-sm-start">
+                            &copy; <a href="#">Tưới Nước Chính Xác</a>, All Right Reserved.
+                        </div>
+                        <div class="col-12 col-sm-6 text-center text-sm-end">
+                            Developed by <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiEoK3n15iKAxURlK8BHTaOJj4QFnoECA8QAQ&url=https%3A%2F%2Fwww.cit.ctu.edu.vn%2F&usg=AOvVaw2Ps1tFsU4Cn_LXYduyH2RM&opi=89978449" target="_blank">CICT</a>
+                            </br>
+                            Can Tho University <a class="border-bottom" href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwj8yaGCyJiKAxVqrVYBHSjqC7YQFnoECCUQAQ&url=https%3A%2F%2Fen.ctu.edu.vn%2F&usg=AOvVaw3J5xOUnnP9gN_HGQNL6GDm&opi=89978449"
+                                target="_blank">CTU</a>
+                        </div>       
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End -->
+        </div>
+        <!-- Content End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/chart/chart.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="script.js"></script>   
+    <script src="js\Plants.js"></script> 
+    <script src="js/main.js"></script>
+    <script src="js\vuonItem.js"></script> 
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Khởi tạo bản đồ
+        var map = L.map('map').setView([10.031007, 105.769048], 13); // Vị trí mặc định là Hà Nội, Việt Nam
+
+        // Thêm lớp bản đồ từ OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        
+        
+        // Biến để lưu marker
+        let marker = L.marker([10.031007, 105.769048]).addTo(map)
+            .bindPopup("Vị trí hiện tại")
+            .openPopup();
+
+         // Lắng nghe sự kiện click trên bản đồ
+        map.on('click', function (e) {
+        const { lat, lng } = e.latlng;
+
+        // Xóa marker cũ nếu có
+        if (marker) {
+            map.removeLayer(marker);
+        }
+
+        // Thêm marker mới
+        marker = L.marker([lat, lng]).addTo(map);
+
+        // Cập nhật tọa độ vào các ô input
+        document.getElementById('latitudeInput').value = lat.toFixed(6);
+        document.getElementById('longitudeInput').value = lng.toFixed(6);
+    });
+        
+    });
+</script>
+
+
+
+
+<!-- edit start -->
+<script>  
+    // Hàm để lấy thông tin từ URL và điền vào form  
+    function getQueryParams() {  
+        const params = new URLSearchParams(window.location.search);  
+        return {  
+            areaName: params.get('areaName'),  
+            gardenType: params.get('gardenType'),  
+            plantingMethod: params.get('plantingMethod'),  
+            areaSize: params.get('areaSize'),  
+            notes: params.get('notes'),  
+            latitude: params.get('latitude'),  
+            longitude: params.get('longitude'),  
+            editIndex: params.get('editIndex')  
+        };  
+    }  
+
+    // Chỉnh sửa đoạn script cuối cùng
+document.addEventListener("DOMContentLoaded", function() {  
+    const { areaName, gardenType, plantingMethod, areaSize, notes, latitude, longitude, editIndex } = getQueryParams();  
+
+    if (areaName) document.getElementById("AreaInput").value = areaName;  
+    if (gardenType) document.getElementById("loaiVuonSelect").value = gardenType;  
+    if (plantingMethod) document.getElementById("cachThucSelect").value = plantingMethod;  
+    if (areaSize) document.getElementById("dientichInput").value = areaSize;  
+    if (notes) document.getElementById("chuThichTextarea").value = notes;  
+    if (latitude) document.getElementById("latitudeInput").value = latitude;  
+    if (longitude) document.getElementById("longitudeInput").value = longitude;  
+
+    // QUAN TRỌNG: Thêm dòng này để gán editIndex vào biến toàn cục
+    window.editIndex = editIndex ? parseInt(editIndex, 10) : null;
+}); 
+</script>
+<!-- edit end -->
+
+
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/5.10.1/mqtt.min.js"
+        integrity="sha512-pR8nd38GU+Btc396OiF2bVNDPxdLVgqA1K/roVBR13m4nVsFmjyIopjsVzncTgmczisiimSFLYpBK+dclsL7uw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="js/mqtt.js"></script>
+    <script type="module" src="js/firebase.js"></script>
+    <script type="module" src="js/weather.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</body>
+
+</html>
