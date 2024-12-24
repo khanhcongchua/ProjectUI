@@ -1,5 +1,6 @@
 import { getDataForHomePage } from "./handlleAPI.js";
 import { login, logout, signup } from "./login.js";
+import { initOrUpdateBar, initPredicting7daysBar } from "./webSocket.js";
 
 // Assuming this code is running in a browser environment
 const currentUrl = window.location.href;
@@ -13,12 +14,38 @@ const loginLink = document.getElementById('loginLink');
 const userDropdown = document.getElementById('userDropdown');
 
 async function getDataWhenLoadingHomePage() {
-    const data = await getDataForHomePage();
+    const data = await getDataForHomePage(apiUrl);
     return data;
 }
 
+const btn = document.querySelector('.btn');
+document.getElementById('kc-selector').addEventListener('change', function () {
+    const selectedValue = this.value; // Lấy giá trị được chọn
+    const kcValueElement = document.getElementById('kc-value'); // Lấy phần tử hiển thị KC
+
+    // Cập nhật giá trị hiển thị
+    kcValueElement.textContent = selectedValue === '0' ? 'auto' : selectedValue;
+
+    // Thêm thông báo (tuỳ chọn)
+});
+
+if (btn) {
+    btn.addEventListener('click', async (e) => {
+        e.preventDefault();
+
+        let selectedValue = document.getElementById('kc-selector').value;
+        const data = await getDataForHomePage(apiUrl, selectedValue);
+
+        let weather7Days = data.data.dataWeather7days;
+
+        await initPredicting7daysBar(data.data.predictWaterVolume, weather7Days.date)
+        await initOrUpdateBar(data.data.dataFromWaterVolume, selectedValue)
+
+    })
+}
+
 if (loginLink || userDropdown) {
-    const data = await getDataWhenLoadingHomePage();
+    const data = await getDataWhenLoadingHomePage(apiUrl);
     if (data.user) {
         loginLink.style.display = 'none';
         userDropdown.style.display = 'block';

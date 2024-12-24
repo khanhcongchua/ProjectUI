@@ -1,4 +1,13 @@
 import { callApi, getDataForHomePage, getWeather7days, getWeatherToday } from "./handlleAPI.js";
+import { initOrUpdateBar, initPredicting7daysBar } from "./webSocket.js";
+
+// Assuming this code is running in a browser environment
+const currentUrl = window.location.href;
+// Extract the origin (protocol + hostname) from the current URL
+const currentOrigin = new URL(currentUrl).origin;
+// Combine the origin and API path to get the full API URL
+// const apiUrl = `${currentOrigin}`;
+const apiUrl = 'http://localhost:3000';
 
 function renderWeatherToday(data) {
     const weatherHtml = `
@@ -67,12 +76,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateWeatherData = async () => {
         let weatherToday = null;
         let weather7Days = null;
+        let predictWaterVolume = null;
+        let dataFromWaterVolume = null;
         try {
             const currentTime = new Date().getTime();
 
-            let data = await getDataForHomePage();
+            let data = await getDataForHomePage(apiUrl, null);
             weatherToday = data.data.dataWeatherToday;
             weather7Days = data.data.dataWeather7days;
+            predictWaterVolume = data.data.predictWaterVolume;
+            dataFromWaterVolume = data.data.dataFromWaterVolume;
+            // console.log(dataFromWaterVolume);
 
             // weatherToday = await getWeatherToday();
             // weather7Days = await getWeather7days();
@@ -80,24 +94,26 @@ document.addEventListener('DOMContentLoaded', () => {
             if (weatherToday == null || weather7Days == null) {
                 console.log('Call api');
 
-                await callApi();
-                weatherToday = await getWeatherToday();
-                weather7Days = await getWeather7days();
+                // await callApi(apiUrl);
+                weatherToday = await getWeatherToday(apiUrl);
+                weather7Days = await getWeather7days(apiUrl);
             }
 
-            // console.log(currentTime, weatherToday.currentTime);
-            // console.log(currentTime - weatherToday.currentTime > 120 * 60 * 1000);
+            // console.log(currentTime, weatherToday.currentTime, weather7Days.currentTime);
 
-            if (currentTime - weatherToday.currentTime > 120 * 60 * 1000) {
-                console.log("Call Api after timing greater than 120 minutes");
 
-                await callApi();
-                weatherToday = await getWeatherToday();
-                weather7Days = await getWeather7days();
+            if (currentTime - weatherToday.currentTime > 60 * 60 * 1000) {
+                console.log("Call Api after timing greater than 60 minutes");
+
+                await callApi(apiUrl);
+                weatherToday = await getWeatherToday(apiUrl);
+                weather7Days = await getWeather7days(apiUrl);
             }
 
             renderWeatherToday(weatherToday);
             renderPredictWeather7days(weather7Days);
+            initPredicting7daysBar(predictWaterVolume, weather7Days.date)
+            initOrUpdateBar(dataFromWaterVolume, 0)
 
         } catch (error) {
             console.error('Error:', error);

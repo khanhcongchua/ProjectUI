@@ -54,10 +54,10 @@
 
 
                 <div class="navbar-nav align-items-center ms-auto">
-                    
 
 
-                    
+
+
                     <div class="nav-item dropdown">
                         <a href="arealist.html" class="textcolor">
                             <i class="fa fa-seedling me-lg-2"></i>
@@ -72,7 +72,7 @@
 
                     <div class="nav-item dropdown" id="userNav">
                         <a href="signin.html" id="loginLink">Login</a>
-                        <div id="userDropdown">
+                        <div id="userDropdown" style="display: none;">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                                 <span class="d-none d-lg-inline-flex" id="user-name">John Doe</span>
                             </a>
@@ -91,26 +91,23 @@
 
 
             <!-- Chọn vườn start-->
-            <div class="container-fluid pt-4 px-4 weather-board" >
-                
-                <!-- Nút Thêm Item -->
-                <!-- <button id="show-alert-btn" class="btn btn-primary">Add Item</button> -->
+            <div class="container-fluid pt-4 px-4 weather-board">
 
+                <div class="nav-item dropdown position-absolute custom-dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="fa fa-envelope me-lg-2"></i>
+                        <span class="d-none d-lg-inline-flex">Message</span>
+                    </a>
 
-                <div class="nav-item dropdown position-absolute custom-dropdown">  
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">  
-                        <i class="fa fa-envelope me-lg-2"></i>  
-                        <span class="d-none d-lg-inline-flex">Message</span>  
-                    </a>  
-            
-                    <div class="dropdown-menu dropdown-menu-end border-0 rounded-0 rounded-bottom m-0" id="messageDropdown">  
-                        <!-- Các item message sẽ được thêm vào đây -->  
-                        <a href="#" class="dropdown-item text-center">See all message</a>  
-                    </div>  
+                    <div class="dropdown-menu dropdown-menu-end border-0 rounded-0 rounded-bottom m-0"
+                        id="messageDropdown">
+                        <!-- Các item message sẽ được thêm vào đây -->
+                        <a href="#" class="dropdown-item text-center">See all message</a>
+                    </div>
                 </div>
-                
+
             </div>
-             <!-- chọn vườn end -->
+            <!-- chọn vườn end -->
 
 
             <!-- Sale & Revenue Start -->
@@ -120,18 +117,19 @@
 
                 <div class="recommend-inf">
                     <h1>Dưa Lưới (KC:<span id="kc-value">0.85</span>)</h1>
+
                     <label for="kc-selector">KC:</label>
                     <select id="kc-selector">
                         <option value="0">auto</option>
                         <option value="0.5">0.5</option>
                         <option value="0.85">0.85</option>
                         <option value="0.6">0.6</option>
-                      </select>
-                    <!-- <button id="show-alert-btn">.</button> -->
-
+                    </select>
+                    <button class="jss676 jss694 jss705 jss706 jss2586 btn btn-primary"
+                        style="width: 130px; height: 30px;" id="show-alert-btn">Tải lại dữ liệu</button>
 
                     <div class="recommend-inf_text">
-                        
+
                     </div>
                 </div>
             </div>
@@ -145,7 +143,7 @@
                         <div class=" text-center rounded p-4 chart_background">
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h6 class="mb-0">Lượng Nước Trong Ngày</h6>
-                                
+
                             </div>
                             <canvas id="worldwide-sales"></canvas>
                         </div>
@@ -154,7 +152,7 @@
                         <div class=" text-center rounded p-4 chart_background">
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h6 class="mb-0">Lượng Nước Dự Đoán Trong 7 Ngày</h6>
-                                
+
                             </div>
                             <canvas id="salse-revenue"></canvas>
                         </div>
@@ -170,7 +168,7 @@
                             <h6 class="mb-4">Thời Tiết 7 Ngày</h6>
                             <div class="row">
                                 <!-- Day 1 -->
-                                
+
                             </div>
                         </div>
                     </div>
@@ -186,11 +184,14 @@
                             &copy; <a href="#">Tưới Nước Chính Xác</a>, All Right Reserved.
                         </div>
                         <div class="col-12 col-sm-6 text-center text-sm-end">
-                            Developed by <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiEoK3n15iKAxURlK8BHTaOJj4QFnoECA8QAQ&url=https%3A%2F%2Fwww.cit.ctu.edu.vn%2F&usg=AOvVaw2Ps1tFsU4Cn_LXYduyH2RM&opi=89978449" target="_blank">CICT</a>
+                            Developed by <a
+                                href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiEoK3n15iKAxURlK8BHTaOJj4QFnoECA8QAQ&url=https%3A%2F%2Fwww.cit.ctu.edu.vn%2F&usg=AOvVaw2Ps1tFsU4Cn_LXYduyH2RM&opi=89978449"
+                                target="_blank">CICT</a>
                             </br>
-                            Can Tho University <a class="border-bottom" href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwj8yaGCyJiKAxVqrVYBHSjqC7YQFnoECCUQAQ&url=https%3A%2F%2Fen.ctu.edu.vn%2F&usg=AOvVaw3J5xOUnnP9gN_HGQNL6GDm&opi=89978449"
+                            Can Tho University <a class="border-bottom"
+                                href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwj8yaGCyJiKAxVqrVYBHSjqC7YQFnoECCUQAQ&url=https%3A%2F%2Fen.ctu.edu.vn%2F&usg=AOvVaw3J5xOUnnP9gN_HGQNL6GDm&opi=89978449"
                                 target="_blank">CTU</a>
-                        </div>       
+                        </div>
                     </div>
                 </div>
             </div>
@@ -214,9 +215,9 @@
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
     <!-- <script src="script.js"></script>    -->
-    <script src="js/Plants.js"></script> 
-    <script src="js/warning.js"></script> 
-    
+    <script src="js/Plants.js"></script>
+    <script src="js/warning.js"></script>
+
 
 
 

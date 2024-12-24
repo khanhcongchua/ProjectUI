@@ -57,14 +57,14 @@
                     <!-- nút test start -->
                     <!-- <button id="add-item-btn" type="submit" class="jss676 jss694 jss705 jss706 jss2586 btn btn-primary ">Lưu</button> -->
 
-                    
+
                     <!-- nut test end -->
-                    
+
 
                     <div class="nav-item dropdown">
                         <a href="index.html" class="textcolor">
                             <i class="fa fa-solid fa-chart-line me-lg-2"></i>
-                            
+
                             <span class="d-none d-lg-inline-flex">Trang Chủ</span>
                         </a>
                         <!-- <div class="dropdown-menu dropdown-menu-end border-0 rounded-0 rounded-bottom m-0">
@@ -73,16 +73,17 @@
                     </div>
 
 
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle textcolor" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt=""
-                                style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                    <div class="nav-item dropdown" id="userNav">
+                        <a href="signin.html" id="loginLink">Login</a>
+                        <div id="userDropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                <span class="d-none d-lg-inline-flex" id="user-name">John Doe</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                                <!-- <a href="#" class="dropdown-item">My Profile</a>
+                                                    <a href="#" class="dropdown-item">Settings</a> -->
+                                <button class="dropdown-item" id="logOut-btn">Log Out</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -92,30 +93,31 @@
 
 
             <!-- Chọn vườn start-->
-            <div class="container-fluid pt-4 px-4 weather-board" >
-                            
-                
+            <div class="container-fluid pt-4 px-4 weather-board">
 
 
-                <div  class="nav-item dropdown position-absolute custom-dropdown " style="padding-top: 30px;"> 
-                    
-                    <button type="submit" class="jss676 jss694 jss705 jss706 jss2586 btn btn-primary " onclick="window.location.href='forminput.html';" >
+
+
+                <div class="nav-item dropdown position-absolute custom-dropdown " style="padding-top: 30px;">
+
+                    <button type="submit" class="jss676 jss694 jss705 jss706 jss2586 btn btn-primary "
+                        onclick="window.location.href='forminput.html';">
                         Thêm vườn
                     </button>
 
                 </div>
-                
+
             </div>
             <!-- chọn vườn end -->
-            
 
-            
+
+
 
 
             <!-- Sales Chart Start -->
             <div class="container-fluid pt-4 px-4">
-                
-                <div class="row g-4 " >
+
+                <div class="row g-4 ">
 
                     <!-- <div class="row g-4">
                         <div class=" text-center rounded p-4 chart_background">
@@ -127,25 +129,25 @@
                         </div>
                     </div> -->
 
-                    <!-- Container cho danh sách item -->  
-                    <div id="item-container" class="row g-4">  
+                    <!-- Container cho danh sách item -->
+                    <div id="item-container" class="row g-4">
                         <!-- Các item sẽ được thêm vào đây   -->
                     </div>
-                    
-                    
-                        
 
 
-                    
-                    
 
-                    
-                    
+
+
+
+
+
+
+
                 </div>
             </div>
             <!-- Sales Chart End -->
 
-            
+
 
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4 footer1">
@@ -155,11 +157,14 @@
                             &copy; <a href="#">Tưới Nước Chính Xác</a>, All Right Reserved.
                         </div>
                         <div class="col-12 col-sm-6 text-center text-sm-end">
-                            Developed by <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiEoK3n15iKAxURlK8BHTaOJj4QFnoECA8QAQ&url=https%3A%2F%2Fwww.cit.ctu.edu.vn%2F&usg=AOvVaw2Ps1tFsU4Cn_LXYduyH2RM&opi=89978449" target="_blank">CICT</a>
+                            Developed by <a
+                                href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiEoK3n15iKAxURlK8BHTaOJj4QFnoECA8QAQ&url=https%3A%2F%2Fwww.cit.ctu.edu.vn%2F&usg=AOvVaw2Ps1tFsU4Cn_LXYduyH2RM&opi=89978449"
+                                target="_blank">CICT</a>
                             </br>
-                            Can Tho University <a class="border-bottom" href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwj8yaGCyJiKAxVqrVYBHSjqC7YQFnoECCUQAQ&url=https%3A%2F%2Fen.ctu.edu.vn%2F&usg=AOvVaw3J5xOUnnP9gN_HGQNL6GDm&opi=89978449"
+                            Can Tho University <a class="border-bottom"
+                                href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwj8yaGCyJiKAxVqrVYBHSjqC7YQFnoECCUQAQ&url=https%3A%2F%2Fen.ctu.edu.vn%2F&usg=AOvVaw3J5xOUnnP9gN_HGQNL6GDm&opi=89978449"
                                 target="_blank">CTU</a>
-                        </div>       
+                        </div>
                     </div>
                 </div>
             </div>
@@ -182,27 +187,25 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-    <script src="script.js"></script>   
-    <script src="js\Plants.js"></script>
-    <script src="js\vuonItem.js"></script> 
+
+    <!-- <script src="js/Plants.js"></script> -->
+    <script type='module' src="js/vuonItem.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mqtt/5.10.1/mqtt.min.js"
-        integrity="sha512-pR8nd38GU+Btc396OiF2bVNDPxdLVgqA1K/roVBR13m4nVsFmjyIopjsVzncTgmczisiimSFLYpBK+dclsL7uw=="
+    <!-- <script src="js/main.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.8/axios.min.js"
+        integrity="sha512-v8+bPcpk4Sj7CKB11+gK/FnsbgQ15jTwZamnBf/xDmiQDcgOIYufBo6Acu1y30vrk8gg5su4x0CG3zfPaq5Fcg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script type="module" src="js/mqtt.js"></script>
-    <script type="module" src="js/firebase.js"></script>
-    <script type="module" src="js/weather.js"></script>
+    <script type="module" src="js/index.js"></script>
 
     <!--  -->
-    <script>  
+    <!-- <script>
         document.addEventListener("DOMContentLoaded", displayItems); // Gọi hàm hiển thị items  
-    </script>
+    </script> -->
 
-     
-    
-    
+
+
+
 
 </body>
 

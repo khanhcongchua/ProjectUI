@@ -27,12 +27,34 @@ socket.onerror = (error) => {
 
 let mixedChart;
 
-export function initOrUpdateBar(data) {
+export function initOrUpdateBar(data, kc) {
 
-    let temperatures = data.map(doc => doc.temp);
+    let waterVolumeData = data.map(doc => doc.waterVolume);
+    let waterVolume = [];
+
+    kc = parseFloat(kc);
+
+    switch (kc) {
+        case 0:
+            waterVolume = waterVolumeData.map(doc => doc.kc_085);
+            break;
+        case 0.5:
+            waterVolume = waterVolumeData.map(doc => doc.kc_05);
+            break;
+        case 0.85:
+            waterVolume = waterVolumeData.map(doc => doc.kc_085);
+            break;
+        case 0.6:
+            waterVolume = waterVolumeData.map(doc => doc.kc_06);
+            break;
+        default:
+            waterVolume = waterVolumeData.map(doc => doc.kc_085);
+            break;
+    }
+
     let humidities = data.map(doc => doc.humd);
     // let timestamps = data.map(doc => new Date(doc.timestamp.toDate()).toLocaleTimeString());
-    let timestamps = data.map(doc => doc.currentTime);
+    let timestamps = data.map(doc => new Date(doc.millisecond).toLocaleTimeString());
 
     if (!mixedChart) {
         const ctx = document.getElementById('worldwide-sales').getContext('2d');
@@ -43,14 +65,14 @@ export function initOrUpdateBar(data) {
                 datasets: [
                     {
                         type: 'bar',
-                        label: 'Nhiệt độ',
-                        data: temperatures,
+                        label: 'Lượng nước',
+                        data: waterVolume,
                         backgroundColor: "rgba(255,99,132,0.6)",
                         yAxisID: 'y1'
                     },
                     {
                         type: 'line',
-                        label: 'Độ ẩm',
+                        label: 'Độ ẩm đất',
                         data: humidities,
                         borderColor: "blue",
                         yAxisID: 'y2'
@@ -65,7 +87,7 @@ export function initOrUpdateBar(data) {
                         position: 'left',
                         title: {
                             display: true,
-                            text: 'Nhiệt độ (°C)'
+                            text: 'Lượng nước (lít)'
                         }
                     },
                     y2: {
@@ -81,11 +103,42 @@ export function initOrUpdateBar(data) {
         });
     } else {
         // Nếu biểu đồ đã tồn tại, cập nhật dữ liệu
+
         mixedChart.data.labels = timestamps;
-        mixedChart.data.datasets[0].data = temperatures;
+        mixedChart.data.datasets[0].data = waterVolume;
         mixedChart.data.datasets[1].data = humidities;
         mixedChart.update();
     }
+}
+
+
+let myChart2 = null;
+
+export function initPredicting7daysBar(data, date) {
+
+    // Salse & Revenue Chart
+    const ctx2 = document.getElementById('salse-revenue').getContext('2d');
+
+    if (myChart2) {
+        myChart2.destroy();
+    }
+
+    myChart2 = new Chart(ctx2, {
+        type: "bar",
+        data: {
+            labels: date,
+            datasets: [{
+                label: "Lượng nước (lít)",
+                data: data,
+                backgroundColor: "rgba(0, 156, 255, .5)",
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+
 }
 
 
