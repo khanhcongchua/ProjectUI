@@ -102,8 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // console.log(currentTime, weatherToday.currentTime, weather7Days.currentTime);
 
 
-            if (currentTime - weatherToday.currentTime > 60 * 60 * 1000) {
-                console.log("Call Api after timing greater than 60 minutes");
+            if (currentTime - weatherToday.currentTime > 90 * 60 * 1000) {
+                console.log("Call Api after timing greater than 90 minutes");
 
                 await callApi(apiUrl);
                 weatherToday = await getWeatherToday(apiUrl);

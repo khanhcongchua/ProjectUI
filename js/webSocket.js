@@ -29,32 +29,20 @@ let mixedChart;
 
 export function initOrUpdateBar(data, kc) {
 
-    let waterVolumeData = data.map(doc => doc.waterVolume);
-    let waterVolume = [];
+    // let waterVolumeData = data.map(doc => doc.waterVolume);
+    let waterVolumeData = data.waterVolume;
 
-    kc = parseFloat(kc);
+    let humidities = data.humd;
 
-    switch (kc) {
-        case 0:
-            waterVolume = waterVolumeData.map(doc => doc.kc_085);
-            break;
-        case 0.5:
-            waterVolume = waterVolumeData.map(doc => doc.kc_05);
-            break;
-        case 0.85:
-            waterVolume = waterVolumeData.map(doc => doc.kc_085);
-            break;
-        case 0.6:
-            waterVolume = waterVolumeData.map(doc => doc.kc_06);
-            break;
-        default:
-            waterVolume = waterVolumeData.map(doc => doc.kc_085);
-            break;
-    }
+    // let timestamps = data.map(doc => new Date(doc.millisecond).toLocaleTimeString());
+    let millisecond = data.millisecond;
 
-    let humidities = data.map(doc => doc.humd);
-    // let timestamps = data.map(doc => new Date(doc.timestamp.toDate()).toLocaleTimeString());
-    let timestamps = data.map(doc => new Date(doc.millisecond).toLocaleTimeString());
+
+    let timestamps = [];
+    millisecond.forEach(element => {
+        timestamps.push(new Date(element).toLocaleTimeString());
+    });
+
 
     if (!mixedChart) {
         const ctx = document.getElementById('worldwide-sales').getContext('2d');
@@ -66,7 +54,7 @@ export function initOrUpdateBar(data, kc) {
                     {
                         type: 'bar',
                         label: 'Lượng nước',
-                        data: waterVolume,
+                        data: waterVolumeData,
                         backgroundColor: "rgba(255,99,132,0.6)",
                         yAxisID: 'y1'
                     },
@@ -105,7 +93,7 @@ export function initOrUpdateBar(data, kc) {
         // Nếu biểu đồ đã tồn tại, cập nhật dữ liệu
 
         mixedChart.data.labels = timestamps;
-        mixedChart.data.datasets[0].data = waterVolume;
+        mixedChart.data.datasets[0].data = waterVolumeData;
         mixedChart.data.datasets[1].data = humidities;
         mixedChart.update();
     }
