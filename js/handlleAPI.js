@@ -1,9 +1,9 @@
 
-export const getDataForHomePage = async (apiUrl, kc) => {
+export const getDataForHomePage = async (apiUrl, kc, area) => {
 
     if (kc) {
 
-        const data = await axios.get(`${apiUrl}/api/view/home?kc=${kc}`, {
+        const data = await axios.get(`${apiUrl}/api/view/home?kc=${kc}&area=${area}`, {
             withCredentials: true
         });
 

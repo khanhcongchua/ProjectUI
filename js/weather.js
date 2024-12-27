@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    setInterval(updateWeatherData, 60 * 1000);
+    setInterval(updateWeatherData, 5 * 60 * 1000);
 
     updateWeatherData();
 });

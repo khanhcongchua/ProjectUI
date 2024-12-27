@@ -115,21 +115,54 @@
                 <div class="weather-inf bg-light">
                 </div>
 
-                <div class="recommend-inf">
+                <div class="recommend-inf p-3 bg-light rounded shadow-sm">
                     <h1>Dưa Lưới (KC:<span id="kc-value">0.85</span>)</h1>
+                    <!-- First Row -->
+                    <div class="row align-items-center mb-3">
+                        <!-- KC Selector -->
+                        <div class="col-md-4">
+                            <label for="kc-selector" class="form-label">Chọn KC:</label>
+                            <select id="kc-selector" class="form-select">
+                                <option value="0">auto</option>
+                                <option value="0.5">0.5</option>
+                                <option value="0.85">0.85</option>
+                                <option value="0.6">0.6</option>
+                            </select>
 
-                    <label for="kc-selector">KC:</label>
-                    <select id="kc-selector">
-                        <option value="0">auto</option>
-                        <option value="0.5">0.5</option>
-                        <option value="0.85">0.85</option>
-                        <option value="0.6">0.6</option>
-                    </select>
-                    <button class="jss676 jss694 jss705 jss706 jss2586 btn btn-primary"
-                        style="width: 130px; height: 30px;" id="show-alert-btn">Tải lại dữ liệu</button>
+                        </div>
 
-                    <div class="recommend-inf_text">
 
+                        <!-- Area Input -->
+                        <div class="col-md-4">
+                            <label for="dientichInput" class="form-label">Diện tích (m²):</label>
+                            <div class="input-group">
+                                <span class="input-group-text">m²</span>
+                                <input type="text" class="form-control" id="dientichInput" aria-label="Diện tích (m²)"
+                                    required>
+                            </div>
+                        </div>
+
+                        <!-- Reload Data Button -->
+                        <div class="col-md-4 d-flex justify-content-md-end align-items-center mt-3 mt-md-0"
+                            style="margin-bottom: -30px;">
+                            <button class="btn btn-primary" id="show-alert-btn">Tải lại dữ liệu</button>
+                        </div>
+
+                    </div>
+
+                    <div class="row" style="padding-top: 10px; max-width: 600px;">
+                        <div class="col-12">
+                            <p>(* kc = 0.5 tương ứng với 30 ngày đầu sau khi trồng, kc = 0.85 tương ứng giai đoạn 80
+                                ngày sau, kc = 0.6 tương ứng giai đoạn 10 ngày cuối.)</p>
+                        </div>
+                    </div>
+                    <!-- Second Row -->
+                    <div class="row" style="padding-top: 10px;">
+                        <div class="col-12">
+                            <div class="recommend-inf_text  text-dark p-2 rounded">
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

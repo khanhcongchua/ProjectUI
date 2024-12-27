@@ -34,7 +34,9 @@ if (btn) {
         e.preventDefault();
 
         let selectedValue = document.getElementById('kc-selector').value;
-        const data = await getDataForHomePage(apiUrl, selectedValue);
+        const area = document.getElementById('dientichInput').value;
+
+        const data = await getDataForHomePage(apiUrl, selectedValue, area);
 
         let weather7Days = data.data.dataWeather7days;
 

@@ -26,6 +26,8 @@ function addAlert(message, type = 'warning') {
 
   // Thêm cảnh báo vào container
   alertContainer.appendChild(alertElement);
+  const firstChild = alertContainer.firstChild;
+  alertContainer.insertBefore(alertElement, firstChild);
 
   // // Tự động ẩn cảnh báo sau 5 giây
   // setTimeout(() => {
