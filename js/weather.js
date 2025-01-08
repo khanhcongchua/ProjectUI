@@ -82,11 +82,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const currentTime = new Date().getTime();
 
             let data = await getDataForHomePage(apiUrl, null);
+
+            if (data.data == null)
+                return;
+
             weatherToday = data.data.dataWeatherToday;
             weather7Days = data.data.dataWeather7days;
             predictWaterVolume = data.data.predictWaterVolume;
             dataFromWaterVolume = data.data.dataFromWaterVolume;
-            // console.log(dataFromWaterVolume);
+            console.log(dataFromWaterVolume);
+
+
 
             // weatherToday = await getWeatherToday();
             // weather7Days = await getWeather7days();
@@ -102,8 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // console.log(currentTime, weatherToday.currentTime, weather7Days.currentTime);
 
 
-            if (currentTime - weatherToday.currentTime > 90 * 60 * 1000) {
-                console.log("Call Api after timing greater than 90 minutes");
+            if (currentTime - weatherToday.currentTime > 60 * 60 * 1000) {
+                console.log("Call Api after timing greater than 60 minutes");
 
                 await callApi(apiUrl);
                 weatherToday = await getWeatherToday(apiUrl);

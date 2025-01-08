@@ -113,7 +113,7 @@
 
                                 <div class="form-floating mb-3">
                                     <select class="form-select" id="loaiVuonSelect"
-                                        aria-label="Floating label select example" required>
+                                        aria-label="Floating label select example">
                                         <option selected>Chọn loại vườn</option>
                                         <option value="1">Nhà kính</option>
                                         <option value="2">Đồng ruộng</option>
@@ -135,9 +135,14 @@
 
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">m²</span>
-                                    <input type="text" class="form-control" id="dientichInput"
+                                    <input type="number" class="form-control" id="dientichInput"
                                         aria-label="Amount (to the nearest dollar)" required>
 
+                                </div>
+
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="topicInput" placeholder="__">
+                                    <label for="floatingInput">Topic sensor</label>
                                 </div>
 
                                 <div class="form-floating mb-3">
@@ -145,6 +150,7 @@
                                         style="height: 150px; max-height: 150px;">   </textarea>
                                     <label for="floatingTextarea">Chú thích</label>
                                 </div>
+
 
                                 <div class="form-floating mb-3" id="map"
                                     style="height: 200px; width: 100%; border-radius: 5px;"></div>
@@ -162,7 +168,7 @@
 
 
                                 <button type="submit" class="jss676 jss694 jss705 jss706 jss2586 btn btn-primary "
-                                    onclick="location.href='arealist.html';">Lưu</button>
+                                    onclick="location.href='arealist.html'">Lưu</button>
 
 
 
@@ -283,13 +289,14 @@
                 notes: params.get('notes'),
                 latitude: params.get('latitude'),
                 longitude: params.get('longitude'),
+                topic: params.get('topic'),
                 editIndex: params.get('editIndex')
             };
         }
 
         // Chỉnh sửa đoạn script cuối cùng
         document.addEventListener("DOMContentLoaded", function () {
-            const { areaName, gardenType, plantingMethod, areaSize, notes, latitude, longitude, editIndex } = getQueryParams();
+            const { areaName, gardenType, plantingMethod, areaSize, notes, latitude, longitude, topic, editIndex } = getQueryParams();
 
             if (areaName) document.getElementById("AreaInput").value = areaName;
             if (gardenType) document.getElementById("loaiVuonSelect").value = gardenType;
@@ -298,6 +305,7 @@
             if (notes) document.getElementById("chuThichTextarea").value = notes;
             if (latitude) document.getElementById("latitudeInput").value = latitude;
             if (longitude) document.getElementById("longitudeInput").value = longitude;
+            if (topic) document.getElementById("topicInput").value = topic;
 
             // QUAN TRỌNG: Thêm dòng này để gán editIndex vào biến toàn cục
             window.editIndex = editIndex ? parseInt(editIndex, 10) : null;

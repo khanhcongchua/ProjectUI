@@ -17,8 +17,24 @@ export const getDataForHomePage = async (apiUrl, kc, area) => {
     return data.data;
 }
 
-export const callApi = async (apiUrl) => {
-    await axios.post(`${apiUrl}/api/view/callApiWeather`);
+export const callApi = async (apiUrl, nameGarden) => {
+    console.log(nameGarden);
+
+    if (nameGarden) {
+        await axios({
+            method: "POST",
+            url: `${apiUrl}/api/view/callApiWeather`,
+            data: nameGarden,
+            withCredentials: true
+        });
+
+    } else {
+        await axios({
+            method: "POST",
+            url: `${apiUrl}/api/view/callApiWeather`,
+            withCredentials: true
+        });
+    }
 }
 
 export const getWeatherToday = async (apiUrl) => {
@@ -60,7 +76,8 @@ export const addGarden = async (apiUrl, newGarden) => {
             "area": newGarden.areaSize,
             "note": newGarden.notes,
             "latitude": newGarden.latitude,
-            "longitude": newGarden.longitude
+            "longitude": newGarden.longitude,
+            "topic": newGarden.topic
         },
         withCredentials: true
     });
@@ -79,7 +96,8 @@ export const updateGarden = async (apiUrl, name, newGarden) => {
             "area": newGarden.areaSize,
             "note": newGarden.notes,
             "latitude": newGarden.latitude,
-            "longitude": newGarden.longitude
+            "longitude": newGarden.longitude,
+            "topic": newGarden.topic
         },
         withCredentials: true
     });

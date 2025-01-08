@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <p><strong>Loại vườn:</strong> ${item.typeGarden}</p>  
                     <p><strong>Cách thức trồng:</strong> ${item.method}</p>  
                     <p><strong>Diện tích:</strong> ${item.area} m²</p>  
+                    <p><strong>Topic sensor:</strong> ${item.topic}</p>  
                     <p><strong>Ghi chú:</strong> ${item.note}</p>  
                     <p><strong>Vĩ độ:</strong> ${item.latitude}</p>  
                     <p><strong>Kinh độ:</strong> ${item.longitude}</p>  
@@ -73,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Lưu thông tin của item vào local storage để sử dụng sau  
         // Chuyển hướng đến form nhập dữ liệu mới  
-        const url = `forminput.html?areaName=${encodeURIComponent(item.nameGarden)}&gardenType=${item.typeGarden}&plantingMethod=${item.method}&areaSize=${item.area}&notes=${encodeURIComponent(item.note)}&latitude=${item.latitude}&longitude=${item.longitude}&editIndex=${index}`;
+        const url = `forminput.html?areaName=${encodeURIComponent(item.nameGarden)}&gardenType=${item.typeGarden}&plantingMethod=${item.method}&areaSize=${item.area}&notes=${encodeURIComponent(item.note)}&latitude=${item.latitude}&longitude=${item.longitude}&topic=${item.topic}&editIndex=${index}`;
         window.location.href = url; // Điều hướng đến trang forminput.html  
     };
 
@@ -89,6 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const notes = document.getElementById("chuThichTextarea").value;
         const latitude = document.getElementById("latitudeInput").value;
         const longitude = document.getElementById("longitudeInput").value;
+        const topic = document.getElementById("topicInput").value;
 
         const type = gardenType.options[gardenType.selectedIndex].text;
         const method = plantingMethod.options[plantingMethod.selectedIndex].text;
@@ -101,7 +103,8 @@ document.addEventListener("DOMContentLoaded", function () {
             areaSize,
             notes,
             latitude,
-            longitude
+            longitude,
+            topic
         };
 
         // QUAN TRỌNG: Sử dụng window.editIndex thay vì biến editIndex cục bộ
@@ -114,6 +117,8 @@ document.addEventListener("DOMContentLoaded", function () {
             // itemList[window.editIndex] = newItem; // Cập nhật item tại vị trí chỉ định
             // localStorage.setItem('itemList', JSON.stringify(itemList));
             // window.editIndex = null; // Reset editIndex
+            console.log(newItem);
+
             await updateGarden(apiUrl, name, newItem)
         } else {
 
@@ -129,6 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("chuThichTextarea").value = '';
         document.getElementById("latitudeInput").value = '';
         document.getElementById("longitudeInput").value = '';
+        document.getElementById("topicInput").value = '';
 
         // // Reset editIndex về null sau lần chỉnh sửa  
         // editIndex = null;  

@@ -563,6 +563,18 @@ a {
     border-color: #b6effb
 }
 
+.alert-login {
+    display: none;
+    position: absolute;
+    top: 18%;
+    left: 38%;
+    padding: 1rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .alert {
     position: relative;
     padding: 1rem 1rem;

@@ -1,4 +1,4 @@
-const abler = document.querySelector('.alert');
+const abler = document.querySelector('.alert-login');
 const ablerText = document.querySelector('.alert-text');
 
 const alert = (status, message) => {
@@ -7,6 +7,7 @@ const alert = (status, message) => {
         abler.style.display = "block";
         ablerText.innerHTML = message;
     } else {
+        abler.style.backgroundColor = "red";
         abler.style.display = "block";
         ablerText.innerHTML = message;
     }

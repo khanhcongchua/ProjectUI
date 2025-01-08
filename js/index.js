@@ -19,35 +19,40 @@ async function getDataWhenLoadingHomePage() {
 }
 
 const btn = document.querySelector('.btn');
-document.getElementById('kc-selector').addEventListener('change', function () {
-    const selectedValue = this.value; // Lấy giá trị được chọn
-    const kcValueElement = document.getElementById('kc-value'); // Lấy phần tử hiển thị KC
+const kc_selector = document.getElementById('kc-selector');
+if (kc_selector) {
+    document.getElementById('kc-selector').addEventListener('change', function () {
+        const selectedValue = this.value; // Lấy giá trị được chọn
+        const kcValueElement = document.getElementById('kc-value'); // Lấy phần tử hiển thị KC
 
-    // Cập nhật giá trị hiển thị
-    kcValueElement.textContent = selectedValue === '0' ? 'auto' : selectedValue;
+        // Cập nhật giá trị hiển thị
+        kcValueElement.textContent = selectedValue === '0' ? 'auto' : selectedValue;
 
-    // Thêm thông báo (tuỳ chọn)
-});
+        // Thêm thông báo (tuỳ chọn)
+    });
 
-if (btn) {
-    btn.addEventListener('click', async (e) => {
-        e.preventDefault();
+    if (btn) {
+        btn.addEventListener('click', async (e) => {
+            e.preventDefault();
 
-        let selectedValue = document.getElementById('kc-selector').value;
-        const area = document.getElementById('dientichInput').value;
+            let selectedValue = document.getElementById('kc-selector').value;
+            const area = document.getElementById('dientichInput').value;
 
-        const data = await getDataForHomePage(apiUrl, selectedValue, area);
+            const data = await getDataForHomePage(apiUrl, selectedValue, area);
 
-        let weather7Days = data.data.dataWeather7days;
+            let weather7Days = data.data.dataWeather7days;
 
-        await initPredicting7daysBar(data.data.predictWaterVolume, weather7Days.date)
-        await initOrUpdateBar(data.data.dataFromWaterVolume, selectedValue)
+            await initPredicting7daysBar(data.data.predictWaterVolume, weather7Days.date)
+            await initOrUpdateBar(data.data.dataFromWaterVolume, selectedValue)
 
-    })
+        })
+    }
 }
+
 
 if (loginLink || userDropdown) {
     const data = await getDataWhenLoadingHomePage(apiUrl);
+
     if (data.user) {
         loginLink.style.display = 'none';
         userDropdown.style.display = 'block';
