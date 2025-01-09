@@ -59,94 +59,43 @@
     });
 
 
-    // Worldwide Sales Chart
-    // var ctx1 = $("#worldwide-sales").get(0).getContext("2d");
-    // const mixedChart = new Chart(ctx1, {
-    //     data: {
-    //         datasets: [{
-    //             type: 'bar',
-    //             label: 'Luong nuoc tuoi/ngay',
-    //             data: [0.10, 0.20, 0.30, 0.2, 0.15, 0.1, 0.4],
-    //             backgroundColor: "rgba(255,230,123,0.5)",
-    //             yAxisID: 'y1',  // Assign to left y-axis
-    //             fill: true
-    //         }, {
-    //             type: 'line',
-    //             label: 'Do am dat',
-    //             data: [9, 30, 29, 20, 33, 15, 27, 33, 18],
-    //             backgroundColor: "blue",
-    //             yAxisID: 'y2'   // Assign to right y-axis
-    //         }],
-    //         labels: ['0', '5', '10', '15', '20', '25', '30'],
-    //         xAxisID: 'x'
-    //     },
-    //     options: {
-    //         responsive: true,
-    //         scales: {
-    //             x: {
-    //                 title: {
-    //                     position: 'bottom',
-    //                     display: true,
-    //                     text: "Time/Day",
-    //                     font: {
-    //                         size: 18
-    //                     }
-    //                 }
-    //             },
-    //             y1: {  // Left y-axis
-    //                 type: 'linear',
-    //                 position: 'left',
-    //                 ticks: {
-    //                     beginAtZero: true
-    //                 },
-    //                 title: {
-    //                     display: true,
-    //                     text: "Luong nuoc tuoi",
-    //                     font: {
-    //                         size: 14
-    //                     }
-    //                 }
-    //             },
-    //             y2: {  // Right y-axis
-    //                 type: 'linear',
-    //                 position: 'right',
-    //                 ticks: {
-    //                     beginAtZero: true
-    //                 },
-    //                 grid: {
-    //                     drawOnChartArea: false  // Prevent grid lines from overlapping
-    //                 },
-    //                 title: {
-    //                     display: true,
-    //                     text: "Do am dat(%)",
-    //                     font: {
-    //                         size: 14
-    //                     },
-    //                 }
-    //             }
-    //         }
-    //     }
-    // });
+    // biểu đồ Lượng Nước Tưới Thực Tế Được Thiết Lập Bởi Công Ty Wefar Farm
+    var ctx1 = $("#actual_water_Volume_chart").get(0).getContext("2d");
+    const myChart1 = new Chart(ctx1, {
+        type: 'bar',
+        data: {
+            labels: ["Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7", "Chủ nhật"],
+            datasets: [{
+                label: "Lượng nuóc tưới (lít)",
+                data: [4000, 4000, 4000, 4000, 4000, 4000, 4000],
+                backgroundColor: "rgba(0, 156, 255, .5)",
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+        }
+    });
 
 
 
     // // Salse & Revenue Chart
-    // var ctx2 = $("#salse-revenue").get(0).getContext("2d");
-    // var myChart2 = new Chart(ctx2, {
-    //     type: "bar",
-    //     data: {
-    //         labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
-    //         datasets: [{
-    //             label: "Salse",
-    //             data: [15, 30, 55, 45, 70, 65, 85],
-    //             backgroundColor: "rgba(0, 156, 255, .5)",
-    //             fill: true
-    //         }
-    //         ]
-    //     },
-    //     options: {
-    //         responsive: true
-    //     }
-    // });
+    var ctx2 = $("#predict_water_Volume_chart").get(0).getContext("2d");
+    var myChart2 = new Chart(ctx2, {
+        type: "bar",
+        data: {
+            labels: ["5:00-6:00", "6:00-7:00", "7:00-8:00", "8:00-9:00", "9:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00", "13:00-14:00", "14:00-15:00"],
+            datasets: [{
+                label: "Lượng nước (lít)",
+                data: [400, 0, 400, 0, 400, 800, 800, 400, 400, 400],
+                backgroundColor: "rgba(0, 156, 255, .5)",
+                fill: true
+            }
+            ]
+        },
+        options: {
+            responsive: true
+        }
+    });
 
 })(jQuery);

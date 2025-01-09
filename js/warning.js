@@ -1,13 +1,11 @@
-// Hàm đóng cảnh báo
 function closeAlert(alertId) {
   const alertElement = document.getElementById(alertId);
   if (alertElement) {
-    alertElement.style.display = 'none'; // Ẩn cảnh báo
+    alertElement.style.display = 'none';
   }
 }
 
-// Hàm thêm một cảnh báo mới vào danh sách
-function addAlert(message, type = 'warning') {
+function addAlert(message, type) {
   const alertContainer = document.querySelector('.recommend-inf_text');
 
   if (!alertContainer) {
@@ -15,51 +13,56 @@ function addAlert(message, type = 'warning') {
     return;
   }
 
-  // Tạo phần tử cảnh báo
   const alertElement = document.createElement('div');
   alertElement.classList.add('alert', `alert-${type}`);
-  alertElement.id = `alert${Date.now()}`; // ID duy nhất
+  alertElement.id = `alert${Date.now()}`;
   alertElement.innerHTML = `
       ${message}
       <span class="close-btn" onclick="closeAlert('${alertElement.id}')">&times;</span>
     `;
 
-  // Thêm cảnh báo vào container
   alertContainer.appendChild(alertElement);
   const firstChild = alertContainer.firstChild;
   alertContainer.insertBefore(alertElement, firstChild);
 
-  // // Tự động ẩn cảnh báo sau 5 giây
-  // setTimeout(() => {
-  //   alertElement.style.display = 'none';
-  // }, 5000);
 }
 
-// Gắn sự kiện động để đóng cảnh báo khi người dùng nhấn vào nút
 document.addEventListener('click', function (event) {
   if (event.target.classList.contains('close-btn')) {
     const alertElement = event.target.parentElement;
     if (alertElement) {
-      alertElement.style.display = 'none'; // Ẩn cảnh báo
+      alertElement.style.display = 'none';
     }
   }
 });
 
-// Ví dụ: Thêm một cảnh báo sau khi tải trang
-document.addEventListener('DOMContentLoaded', () => {
-  addAlert('Cảnh báo tự động khi tải trang.', 'info');
-});
+function convertTimestampToString(timestamp) {
+  const timezoneOffset = 7;
+  const date = new Date(timestamp);
+  const utcDate = new Date(date.getTime() + (timezoneOffset * 60 * 60 * 1000));
+  const options = {
+
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+    hour12: true,
+    timeZone: 'UTC'
+  };
+  const formattedDate = utcDate.toLocaleString('en-US', options);
+
+  return formattedDate;
+}
 
 
-
-document.addEventListener('DOMContentLoaded', () => {
-  // Tự động hiển thị cảnh báo khi tải trang
-  addAlert('Cảnh báo tự động khi tải trang.', 'info');
-
-  // Thêm nút thử nghiệm
-  document.getElementById('show-alert-btn')?.addEventListener('click', () => {
-    addAlert('Cảnh báo mới: Đây là một cảnh báo khi nhấn nút.', 'success');
-  });
-});
-
-
+function handleAddAlert(humd, millisecond) {
+  const time = convertTimestampToString(millisecond);
+  if (humd >= 68) {
+    addAlert(`(${time}) Độ ẩm đất là ${humd}% đang quá cao, khuyến cáo giảm lượng nước tưới`, '-error');
+  }
+  else if (humd >= 60 || humd < 68) {
+    addAlert(`(${time}) Độ ẩm đất là ${humd}% đang ở mức phù hợp`, '-success');
+  }
+  else {
+    addAlert(`(${time}) Độ ẩm đất là ${humd}% đang thấp cần cung cấp đủ nước khuyến cáo`, '-warning');
+  }
+}

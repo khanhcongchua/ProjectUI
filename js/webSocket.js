@@ -25,7 +25,8 @@ socket.onerror = (error) => {
 };
 
 
-let mixedChart;
+let waterVolumeChart;
+let humidityChart;
 
 export function initOrUpdateBar(data, kc) {
 
@@ -44,9 +45,9 @@ export function initOrUpdateBar(data, kc) {
     });
 
 
-    if (!mixedChart) {
+    if (!waterVolumeChart) {
         const ctx = document.getElementById('worldwide-sales').getContext('2d');
-        mixedChart = new Chart(ctx, {
+        waterVolumeChart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: timestamps,
@@ -56,46 +57,48 @@ export function initOrUpdateBar(data, kc) {
                         label: 'Lượng nước',
                         data: waterVolumeData,
                         backgroundColor: "rgba(255,99,132,0.6)",
-                        yAxisID: 'y1'
                     },
-                    {
-                        type: 'line',
-                        label: 'Độ ẩm đất',
-                        data: humidities,
-                        borderColor: "blue",
-                        yAxisID: 'y2'
-                    }
+
                 ]
             },
             options: {
                 responsive: true,
-                scales: {
-                    y1: {
-                        type: 'linear',
-                        position: 'left',
-                        title: {
-                            display: true,
-                            text: 'Lượng nước (lít)'
-                        }
-                    },
-                    y2: {
-                        type: 'linear',
-                        position: 'right',
-                        title: {
-                            display: true,
-                            text: 'Độ ẩm (%)'
-                        }
-                    }
-                }
             }
         });
     } else {
         // Nếu biểu đồ đã tồn tại, cập nhật dữ liệu
 
-        mixedChart.data.labels = timestamps;
-        mixedChart.data.datasets[0].data = waterVolumeData;
-        mixedChart.data.datasets[1].data = humidities;
-        mixedChart.update();
+        waterVolumeChart.data.labels = timestamps;
+        waterVolumeChart.data.datasets[0].data = waterVolumeData;
+        waterVolumeChart.update();
+    }
+
+    if (!humidityChart) {
+        const ctx2 = document.getElementById('actual_humidity_chart').getContext('2d');
+        humidityChart = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: timestamps,
+                datasets: [
+                    {
+                        type: 'line',
+                        label: 'Độ ẩm',
+                        data: humidities,
+                        backgroundColor: "rgba(255,99,132,0.6)",
+                    },
+
+                ]
+            },
+            options: {
+                responsive: true,
+            }
+        });
+    } else {
+        // Nếu biểu đồ đã tồn tại, cập nhật dữ liệu
+
+        humidityChart.data.labels = timestamps;
+        humidityChart.data.datasets[0].data = humidities;
+        humidityChart.update();
     }
 }
 

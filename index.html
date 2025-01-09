@@ -7,119 +7,32 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-
-    <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
     <div class=" position-relative bg-white d-flex p-0  container-xxl1">
-
-        <!-- Content Start -->
         <div class="content">
-            <!-- Navbar Start -->
             <nav class="navbar navbar-expand navbar-light sticky-top px-4 py-0 ">
-                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
-                    <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
-                </a>
-                <a href="#" class="sidebar-toggler flex-shrink-0">
-                    <i class="fa fa-bars"></i>
-                </a>
-                <form class="d-none d-md-flex ms-4">
-                    <input class="form-control border-0" type="search" placeholder="Search">
-                </form>
-
-
-
-                <div class="navbar-nav align-items-center ms-auto">
-
-
-
-
-                    <div class="nav-item dropdown">
-                        <a href="arealist.html" class="textcolor">
-                            <i class="fa fa-seedling me-lg-2"></i>
-
-                            <span class="d-none d-lg-inline-flex">Danh sách vườn</span>
-                        </a>
-                        <!-- <div class="dropdown-menu dropdown-menu-end border-0 rounded-0 rounded-bottom m-0">
-                            
-                        </div> -->
-                    </div>
-
-
-                    <div class="nav-item dropdown" id="userNav">
-                        <a href="signin.html" id="loginLink">Login</a>
-                        <div id="userDropdown" style="display: none;">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                                <span class="d-none d-lg-inline-flex" id="user-name">John Doe</span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                                <!-- <a href="#" class="dropdown-item">My Profile</a>
-                                <a href="#" class="dropdown-item">Settings</a> -->
-                                <button class="dropdown-item" id="logOut-btn">Log Out</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </nav>
-            <!-- Navbar End -->
-
-
-
-
-            <!-- Chọn vườn start-->
-            <div class="container-fluid pt-4 px-4 weather-board">
-
-                <div class="nav-item dropdown position-absolute custom-dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <i class="fa fa-envelope me-lg-2"></i>
-                        <span class="d-none d-lg-inline-flex">Message</span>
-                    </a>
-
-                    <div class="dropdown-menu dropdown-menu-end border-0 rounded-0 rounded-bottom m-0"
-                        id="messageDropdown">
-                        <!-- Các item message sẽ được thêm vào đây -->
-                        <a href="#" class="dropdown-item text-center">See all message</a>
-                    </div>
-                </div>
-
-            </div>
-            <!-- chọn vườn end -->
-
-
-            <!-- Sale & Revenue Start -->
             <div class="container-fluid pt-4 px-4 weather-board">
                 <div class="weather-inf bg-light">
                 </div>
-
                 <div class="recommend-inf p-3 bg-light rounded shadow-sm">
                     <h1>Dưa Lưới (KC:<span id="kc-value">0.85</span>)</h1>
-                    <!-- First Row -->
                     <div class="row align-items-center mb-3">
-                        <!-- KC Selector -->
                         <div class="col-md-4">
                             <label for="kc-selector" class="form-label">Chọn KC:</label>
                             <select id="kc-selector" class="form-select">
@@ -128,11 +41,7 @@
                                 <option value="0.85">0.85</option>
                                 <option value="0.6">0.6</option>
                             </select>
-
                         </div>
-
-
-                        <!-- Area Input -->
                         <div class="col-md-4">
                             <label for="dientichInput" class="form-label">Diện tích (m²):</label>
                             <div class="input-group">
@@ -141,42 +50,32 @@
                                     required>
                             </div>
                         </div>
-
-                        <!-- Reload Data Button -->
                         <div class="col-md-4 d-flex justify-content-md-end align-items-center mt-3 mt-md-0"
                             style="margin-bottom: -30px;">
                             <button class="btn btn-primary" id="show-alert-btn">Tải lại dữ liệu</button>
                         </div>
-
                     </div>
-
                     <div class="row" style="padding-top: 10px; max-width: 600px;">
                         <div class="col-12">
                             <p>(* kc = 0.5 tương ứng với 30 ngày đầu sau khi trồng, kc = 0.85 tương ứng giai đoạn 80
                                 ngày sau, kc = 0.6 tương ứng giai đoạn 10 ngày cuối.)</p>
                         </div>
                     </div>
-                    <!-- Second Row -->
                     <div class="row" style="padding-top: 10px;">
                         <div class="col-12">
                             <div class="recommend-inf_text  text-dark p-2 rounded">
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Sale & Revenue End -->
-
-
-            <!-- Sales Chart Start -->
             <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">
+                <div class="row g-4" style="padding-bottom: 20px;">
                     <div class="col-sm-12 col-xl-6">
                         <div class=" text-center rounded p-4 chart_background">
                             <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Lượng Nước Trong Ngày</h6>
-
+                                <h6 class="mb-0">Lượng Nước Tưới Cần Thiết Trên Lý Thuyết Trong Ngày Với Điều Kiện Nhà
+                                    Lưới</h6>
                             </div>
                             <canvas id="worldwide-sales"></canvas>
                         </div>
@@ -184,32 +83,53 @@
                     <div class="col-sm-12 col-xl-6">
                         <div class=" text-center rounded p-4 chart_background">
                             <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Lượng Nước Dự Đoán Trong 7 Ngày</h6>
-
+                                <h6 class="mb-0">Lượng Nước Tưới Thực Tế Trong Ngày Được Thiết Lập Bởi Công Ty Wefar
+                                    Farm</h6>
+                            </div>
+                            <canvas id="predict_water_Volume_chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-sm-12 col-xl-6">
+                        <div class=" text-center rounded p-4 chart_background">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0">Lượng Nước Tưới Cần Thiết Trên Lý Thuyết 7 Ngày Tới</h6>
                             </div>
                             <canvas id="salse-revenue"></canvas>
                         </div>
                     </div>
+                    <div class="col-sm-12 col-xl-6">
+                        <div class=" text-center rounded p-4 chart_background">
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <h6 class="mb-0">Lượng Nước Tưới Thực Tế Được Thiết Lập Bởi Công Ty Wefar Farm</h6>
+                            </div>
+                            <canvas id="actual_water_Volume_chart"></canvas>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- Sales Chart End -->
-
+            <div class="container-fluid pt-4 px-4 weather7days">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-xl-12">
+                        <div class=" text-center rounded p-4 chart_background">
+                            <h6 class="mb-4">Độ Ẩm Hàng Giờ Trong Nhà</h6>
+                            <canvas id="actual_humidity_chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="container-fluid pt-4 px-4 weather7days">
                 <div class="row g-4">
                     <div class="col-sm-12 col-xl-12">
                         <div class=" text-center rounded p-4 chart_background">
                             <h6 class="mb-4">Thời Tiết 7 Ngày</h6>
                             <div class="row">
-                                <!-- Day 1 -->
-
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-
-            <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4 footer1">
                 <div class=" rounded-top p-4">
                     <div class="row">
@@ -228,16 +148,9 @@
                     </div>
                 </div>
             </div>
-            <!-- Footer End -->
         </div>
-        <!-- Content End -->
-
-
-        <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
-
-    <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/chart/chart.min.js"></script>
@@ -247,26 +160,15 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-    <!-- <script src="script.js"></script>    -->
-    <script src="js/Plants.js"></script>
     <script src="js/warning.js"></script>
-
-
-
-
-    <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.8/axios.min.js"
         integrity="sha512-v8+bPcpk4Sj7CKB11+gK/FnsbgQ15jTwZamnBf/xDmiQDcgOIYufBo6Acu1y30vrk8gg5su4x0CG3zfPaq5Fcg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <!-- <script type="module" src="js/handlleAPI.js"></script> -->
     <script type="module" src="js/weather.js"></script>
     <script type="module" src="js/index.js"></script>
-    <!-- <script type="module" src="js/webSocket.js"></script> -->
-
-
-
+    <script>
+    </script>
 </body>
 
 </html>

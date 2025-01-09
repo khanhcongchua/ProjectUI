@@ -1,12 +1,8 @@
 import { callApi, getDataForHomePage, getWeather7days, getWeatherToday } from "./handlleAPI.js";
 import { initOrUpdateBar, initPredicting7daysBar } from "./webSocket.js";
 
-// Assuming this code is running in a browser environment
 const currentUrl = window.location.href;
-// Extract the origin (protocol + hostname) from the current URL
 const currentOrigin = new URL(currentUrl).origin;
-// Combine the origin and API path to get the full API URL
-// const apiUrl = `${currentOrigin}`;
 const apiUrl = 'http://localhost:3000';
 
 function renderWeatherToday(data) {
@@ -17,26 +13,33 @@ function renderWeatherToday(data) {
                             <div class="weather-icon">
                                 <img height ="55" src="img/high-temperature.png" />
                                 <h3>${data.temp}°C</h3>
+                                <h7>(Trung bình)</h7>
                             </div>
                             <div class="weather-icon">
                                 <img height ="55" src="img/thermometer.png" />
                                 <h3>${data.maxTemp}°C</h3>
+                                <h7>(Nhiệt độ cao nhất)</h7>
+
                             </div>
                         </div>
                         <div class="col-icon">
                             <div class="weather-icon">
                                 <img height ="55" src="img/humidity-sensor.png" />
                                 <h3>${data.humidity}%</h3>
+                                <h7>(Độ ẩm)</h7>
+
                             </div>
                             <div class="weather-icon">
                                 <img height ="55" src="img/low-temperature.png" />
                                 <h3>${data.minTemp}°C</h3>
+                                <h7>(Nhiệt độ thấp nhất)</h7>
+
                             </div>
                         </div>
                     </div>
                     <div class="weather-temp-today">
                         <img height="150" width="150" alt="Weather API Day Thunderstorm with light rain" style=""                    
-                         src="https://cdn.weatherbit.io/static/img/icons/${data.icon}.png">
+                            src="https://cdn.weatherbit.io/static/img/icons/${data.icon}.png">
                         <h1>${data.titleOfWeather}</h1>
                     </div>`
 
@@ -61,7 +64,7 @@ function renderPredictWeather7days(data) {
             <div class="bg-white rounded p-3">
                 <h6>${days[day]}</h6>
                 <img height="50" width="50" alt="Weather API Day Thunderstorm with light rain" style=""                     
-                         src="https://cdn.weatherbit.io/static/img/icons/${icon}.png">
+                            src="https://cdn.weatherbit.io/static/img/icons/${icon}.png">
                 <p>${temp}°C</p>
             </div>
         </div>
@@ -72,7 +75,6 @@ function renderPredictWeather7days(data) {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Function to check and update the weather data
     const updateWeatherData = async () => {
         let weatherToday = null;
         let weather7Days = null;
@@ -86,23 +88,19 @@ document.addEventListener('DOMContentLoaded', () => {
             weather7Days = data.data.dataWeather7days;
             predictWaterVolume = data.data.predictWaterVolume;
             dataFromWaterVolume = data.data.dataFromWaterVolume;
-            // console.log(dataFromWaterVolume);
+            console.log(dataFromWaterVolume);
 
-            // weatherToday = await getWeatherToday();
-            // weather7Days = await getWeather7days();
 
             if (weatherToday == null || weather7Days == null) {
                 console.log('Call api');
 
-                // await callApi(apiUrl);
                 weatherToday = await getWeatherToday(apiUrl);
                 weather7Days = await getWeather7days(apiUrl);
             }
 
-            // console.log(currentTime, weatherToday.currentTime, weather7Days.currentTime);
 
 
-            if (currentTime - weatherToday.currentTime > 90 * 60 * 1000) {
+            if (currentTime - weatherToday.currentTime > 55 * 60 * 1000) {
                 console.log("Call Api after timing greater than 90 minutes");
 
                 await callApi(apiUrl);
@@ -114,13 +112,14 @@ document.addEventListener('DOMContentLoaded', () => {
             renderPredictWeather7days(weather7Days);
             initPredicting7daysBar(predictWaterVolume, weather7Days.date)
             initOrUpdateBar(dataFromWaterVolume, 0)
+            handleAddAlert(dataFromWaterVolume.humd[dataFromWaterVolume.humd.length - 1], dataFromWaterVolume.millisecond[dataFromWaterVolume.millisecond.length - 1]);
 
         } catch (error) {
             console.error('Error:', error);
         }
     };
 
-    setInterval(updateWeatherData, 5 * 60 * 1000);
+    setInterval(updateWeatherData, 10 * 60 * 1000);
 
     updateWeatherData();
 });
