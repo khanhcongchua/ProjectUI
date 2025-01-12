@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (weatherToday == null || weather7Days == null) {
                 console.log('Call api');
-
+                await callApi(apiUrl);
                 weatherToday = await getWeatherToday(apiUrl);
                 weather7Days = await getWeather7days(apiUrl);
             }
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
             if (currentTime - weatherToday.currentTime > 55 * 60 * 1000) {
-                console.log("Call Api after timing greater than 90 minutes");
+                console.log("Call Api after timing greater than 55 minutes");
 
                 await callApi(apiUrl);
                 weatherToday = await getWeatherToday(apiUrl);

@@ -27,6 +27,7 @@ socket.onerror = (error) => {
 
 let waterVolumeChart;
 let humidityChart;
+let waterVolumeChartYesterday;
 
 export function initOrUpdateBar(data, kc) {
 
@@ -81,9 +82,73 @@ export function initOrUpdateBar(data, kc) {
                 labels: timestamps,
                 datasets: [
                     {
+                        type: 'bar',
+                        label: 'Lượng nước',
+                        data: [400, 0, 400, 0, 400, 800, 800, 400, 400, 400],
+                        backgroundColor: "rgba(255,99,132,0.6)",
+                        yAxisID: 'y1'
+                    },
+                    {
                         type: 'line',
-                        label: 'Độ ẩm',
+                        label: 'Độ ẩm đất',
                         data: humidities,
+                        borderColor: "blue",
+                        yAxisID: 'y2'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y1: {
+                        type: 'linear',
+                        position: 'left',
+                        title: {
+                            display: true,
+                            text: 'Lượng nước (lít)'
+                        }
+                    },
+                    y2: {
+                        type: 'linear',
+                        position: 'right',
+                        title: {
+                            display: true,
+                            text: 'Độ ẩm (%)'
+                        }
+                    }
+                }
+            }
+        });
+    } else {
+        // Nếu biểu đồ đã tồn tại, cập nhật dữ liệu
+
+        humidityChart.data.labels = timestamps;
+        humidityChart.data.datasets[0].data = humidities;
+        humidityChart.update();
+    }
+
+    //chart for data yesterday
+    let waterVolumeDataYesterday = data.waterVolumeYesterday;
+
+    let millisecondYesterday = data.millisecondYesterday;
+
+
+    let timestampsForYesterday = [];
+    millisecondYesterday.forEach(element => {
+        timestampsForYesterday.push(new Date(element).toLocaleTimeString());
+    });
+
+    if (!waterVolumeChartYesterday) {
+        const ctx = document.getElementById('amountOfWater_yesterday').getContext('2d');
+        waterVolumeChartYesterday = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: timestampsForYesterday,
+                datasets: [
+                    {
+                        type: 'bar',
+                        label: 'Lượng nước',
+                        data: waterVolumeDataYesterday,
                         backgroundColor: "rgba(255,99,132,0.6)",
                     },
 
@@ -95,10 +160,9 @@ export function initOrUpdateBar(data, kc) {
         });
     } else {
         // Nếu biểu đồ đã tồn tại, cập nhật dữ liệu
-
-        humidityChart.data.labels = timestamps;
-        humidityChart.data.datasets[0].data = humidities;
-        humidityChart.update();
+        waterVolumeChartYesterday.data.labels = timestamps;
+        waterVolumeChartYesterday.data.datasets[0].data = waterVolumeData;
+        waterVolumeChartYesterday.update();
     }
 }
 
