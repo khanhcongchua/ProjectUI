@@ -123,12 +123,14 @@ export function initOrUpdateBar(data, kc) {
         // Nếu biểu đồ đã tồn tại, cập nhật dữ liệu
 
         humidityChart.data.labels = timestamps;
-        humidityChart.data.datasets[0].data = humidities;
+        humidityChart.data.datasets[1].data = humidities;
         humidityChart.update();
     }
 
     //chart for data yesterday
     let waterVolumeDataYesterday = data.waterVolumeYesterday;
+    console.log(data.waterVolumeYesterday);
+
 
     let millisecondYesterday = data.millisecondYesterday;
 
@@ -160,8 +162,8 @@ export function initOrUpdateBar(data, kc) {
         });
     } else {
         // Nếu biểu đồ đã tồn tại, cập nhật dữ liệu
-        waterVolumeChartYesterday.data.labels = timestamps;
-        waterVolumeChartYesterday.data.datasets[0].data = waterVolumeData;
+        waterVolumeChartYesterday.data.labels = timestampsForYesterday;
+        waterVolumeChartYesterday.data.datasets[0].data = waterVolumeDataYesterday;
         waterVolumeChartYesterday.update();
     }
 }
